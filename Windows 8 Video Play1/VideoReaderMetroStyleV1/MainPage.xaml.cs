@@ -97,10 +97,6 @@ namespace VideoReaderMetroStyleV1
             mediaElement.SetSource(stream, file.ContentType);
             
 
-            if (_loggingData.Count != 0)
-            {
-                WriteCSVFile(file.DisplayName+".csv");
-            }
             
             CurrentVideo = file.DisplayName;
         }
@@ -201,7 +197,17 @@ namespace VideoReaderMetroStyleV1
 
         private void Page_KeyDown_1(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
-            _loggingData.Add(CurrentVideo +","+ e.Key.ToString() + "," + MediaCurrentPosition.Text);
+            string time = MediaCurrentPosition.Text.Replace(":", ",");
+            _loggingData.Add(CurrentVideo +";"+ e.Key.ToString() + ";=Time(" + time+")");
+            
+        }
+
+        private void SaveLog_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (_loggingData.Count != 0)
+            {
+                WriteCSVFile(CurrentVideo + ".csv");
+            }
             
         }
     }
