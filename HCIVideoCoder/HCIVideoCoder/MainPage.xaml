@@ -1,0 +1,27 @@
+﻿<Page x:Name="page"
+    x:Class="HCIVideoCoder.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HCIVideoCoder"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" FontFamily="Global User Interface"
+    KeyDown="Page_KeyDown_1"
+    >
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <MediaElement x:Name="VideoMediaElement" MediaOpened="VideoMediaElement_MediaOpened_1"  HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=page}" MinHeight="720" MinWidth="1024"/>
+        <Slider x:Name="DurationSlider" ValueChanged="DurationSlider_ValueChanged_1" Margin="43,602,44,115" VerticalAlignment="Stretch" Background="#FF6E7072" BorderBrush="#FF007ACC" BorderThickness="0,1,1,1" Foreground="#FFEBF1F5" ManipulationMode="System" TickPlacement="Outside"/>
+        <Button x:Name="PlayButton" Click="PlayButton_Click_1" Content="Play" HorizontalAlignment="Left" Height="42" Margin="612,701,0,0" VerticalAlignment="Top" Width="132"/>
+        <Button x:Name="RewindButton" Click="RewindButton_Click_1" Content="Rewind" HorizontalAlignment="Left" Height="42" Margin="465,701,0,0" VerticalAlignment="Top" Width="94"/>
+        <Button x:Name="FastForwardButton" Click="FastForwardButton_Click_1" Content="FastForward" HorizontalAlignment="Left" Height="42" Margin="794,701,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button x:Name="SaveLogButton" Click="SaveLogButton_Click_1" Content="Save Log" HorizontalAlignment="Left" Height="42" Margin="1223,701,0,0" VerticalAlignment="Top" Width="99"/>
+        <Button x:Name="LoadFileButton" Click="LoadFileButton_Click_1" Content="Load" HorizontalAlignment="Left" Height="42" Margin="847,10,0,0" VerticalAlignment="Top" Width="84"/>
+        <TextBlock x:Name="VideoCurrentLocationTextBlock"  HorizontalAlignment="Left" Height="27" Margin="43,669,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="102" FontSize="20"/>
+        <TextBlock x:Name="VideoLengthTextBlock" HorizontalAlignment="Left" Height="27" Margin="1223,669,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" Width="99" FontSize="20"/>
+        <TextBlock x:Name="CurrentVideoTextBlock" HorizontalAlignment="Left" Height="27" Margin="533,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" IsHitTestVisible="False" FontSize="20" Text="..."/>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="440,20,0,0" TextWrapping="Wrap" Text="Coding:" VerticalAlignment="Top" Width="78" FontSize="20"/>
+        <TextBlock x:Name="PlaySpeedTextBlock" HorizontalAlignment="Left" Height="69" Margin="612,568,0,0" TextWrapping="Wrap" Text="1x" VerticalAlignment="Top" Width="110" FontSize="62" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>
