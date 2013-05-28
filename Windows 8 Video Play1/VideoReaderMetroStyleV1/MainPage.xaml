@@ -14,7 +14,7 @@
         <MediaElement 
             x:Name="mediaElement"
             MediaOpened="MediaOpenedEvent"
-            HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="1366" Stereo3DVideoRenderMode="Stereo"/>
+            HorizontalAlignment="Center" VerticalAlignment="Top" Stereo3DVideoRenderMode="Stereo" Width="Auto" Height="Auto" MinHeight="720" MinWidth="1024"/>
 
         <AppBar Margin="10,658,10,10" Background="Transparent">
             <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
