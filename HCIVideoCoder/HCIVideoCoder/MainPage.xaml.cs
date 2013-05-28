@@ -59,26 +59,39 @@ namespace HCIVideoCoder
 
             // Overloaded constructor takes the arguments days, hours, minutes, seconds, miniseconds. 
             // Create a TimeSpan with miliseconds equal to the slider value.
-            TimeSpan ts = new TimeSpan(0, 0, 0, 0, slidervalue);
+            long newTime = slidervalue * VideoMediaElement.NaturalDuration.TimeSpan.Ticks / 100;
+            TimeSpan ts = new TimeSpan(newTime);
             VideoMediaElement.Position = ts;
         }
 
         private void PlayButton_Click_1(object sender, RoutedEventArgs e)
-        {           
+        {
             if (VideoMediaElement.CurrentState.Equals(MediaElementState.Paused))
+            {
                 VideoMediaElement.Play();
+                PlayButton.Content = "Pause";
+                PlaySpeedTextBlock.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
             else
+            {
                 VideoMediaElement.Pause();
+                PlayButton.Content = "Play";
+                PlaySpeedTextBlock.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
         }
 
         private void RewindButton_Click_1(object sender, RoutedEventArgs e)
         {
             VideoMediaElement.PlaybackRate = VideoMediaElement.PlaybackRate-1;
+            PlaySpeedTextBlock.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            PlaySpeedTextBlock.Text = VideoMediaElement.PlaybackRate.ToString() + "x"; 
         }
 
         private void FastForwardButton_Click_1(object sender, RoutedEventArgs e)
         {
             VideoMediaElement.PlaybackRate = VideoMediaElement.PlaybackRate+1;
+            PlaySpeedTextBlock.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            PlaySpeedTextBlock.Text = VideoMediaElement.PlaybackRate.ToString() + "x"; 
         }
 
        
